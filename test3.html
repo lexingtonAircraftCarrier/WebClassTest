@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>test3</title>
+	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+
+    <div class="in">カードを引く</div>
+    <div class="out">勝負に挑む</div>
+    <h1></h1>
+    <p></p>
+    <h2></h2>
+
+    <script type="text/javascript">
+        var a = 0;
+        $("h1").text(a);
+
+        $(".in").on("click", function () {
+            var r = Math.floor(Math.random() * 5 + 1);
+            a += r;
+            $("h1").text(a);
+            $("p").text("カードは" + r + "でした");
+            if (a > 10) {
+                $("h2").text("負けました");
+            }
+        })
+        $(".out").click(function () {
+            var c = Math.floor(Math.random() * 5 + 6);
+            if (a < c) {
+                $("h2").text("負けました");
+            }
+            else if (a == c) {
+                $("h2").text("引き分けです");
+            }
+            else {
+                $("h2").text("勝ちました");
+            }
+            $("p").text("勝負！　コンピューターの持ち点は" + c + "です");
+        })
+    </script>
+    
+</body>
+</html>
